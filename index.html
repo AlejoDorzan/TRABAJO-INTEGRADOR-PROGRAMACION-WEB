@@ -1,78 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CompraTech | Inicio</title>
-    <link rel="stylesheet" href="Style.css">
-    <script defer src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CompraTech | Inicio</title>
+  <link rel="stylesheet" href="Style.css"/>
+  <script defer src="js/script.js"></script>
 </head>
-
 <body>
-    <!-- ======================== -->
-    <!-- ENCABEZADO / NAVBAR -->
-    <!-- ======================== -->
-    <header>
-        <!-- 🖼️ Aquí va el logo de la empresa -->
-        <!-- Ejemplo: <img src="img/logo.png" alt="CompraTech Logo" class="logo"> -->
-        <h1 class="titulo">CompraTech</h1>
+  <!-- ============================= -->
+  <!-- NAVBAR (FLEX)                -->
+  <!-- ============================= -->
+  <header class="site-header">
+    <div class="container nav">
+      <h1 class="logo">CompraTech</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a class="active" href="index.html">Inicio</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="productos.html">Productos</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- ============================= -->
+  <!--            HERO               -->
+  <!-- ============================= -->
+  <section class="hero container">
+    <h2>La mejor tecnología al mejor precio</h2>
+    <p>Placas de video, monitores, teclados y más, todo con garantía y soporte.</p>
+  </section>
 
-    <!-- ======================== -->
-    <!-- CARRUSEL DE IMÁGENES -->
-    <!-- ======================== -->
-    <section class="carrusel">
-        <!-- 🖼️ Aquí irán las imágenes del carrusel -->
-        <!-- Ejemplo: <img id="imagen-carrusel" src="img/producto1.jpg" alt="Producto destacado"> -->
-        <button id="prev">⟨</button>
-        <div class="contenedor-imagen">
-            <!-- Imagen del carrusel se insertará aquí dinámicamente con JS -->
+  <!-- ============================= -->
+  <!--          CARRUSEL             -->
+  <!-- ============================= -->
+    <section class="marco-carrusel">
+    <div class="contenedor-carrusel">
+
+        <h2 class="titulo-carrusel">Productos destacados</h2>
+
+        <button id="prev" class="btn-carrusel" aria-label="Anterior">‹</button>
+
+        <div class="ventana">
+        <!-- La tira contiene las imágenes a pantalla completa -->
+        <div class="tira">
+            <!-- Si mantienes espacios y mayúsculas, usa %20 en los espacios -->
+            <img src="img/monitor_msi_144.png" alt="Monitor MSI 144Hz">
+            <img src="img/rtx-4090.png" alt="GeForce RTX 4090">
+            <img src="img/teclado-mecanico-rgb.png" alt="Teclado mecánico RGB">
         </div>
-        <button id="next">⟩</button>
-    </section>
-
-    <!-- ======================== -->
-    <!-- SECCIÓN DE PRESENTACIÓN -->
-    <!-- ======================== -->
-    <section class="presentacion">
-        <h2>Bienvenido a CompraTech</h2>
-        <p>
-            En <strong>CompraTech</strong> encontrarás los mejores productos tecnológicos del mercado.
-            Desde placas de video hasta monitores y teclados gamer, todo con la mejor calidad y precio.
-        </p>
-        <!-- 🖼️ Aquí podrías colocar una imagen de fondo o ilustrativa -->
-        <!-- Ejemplo: <img src="img/banner.jpg" alt="Tecnología moderna"> -->
-    </section>
-
-    <!-- ======================== -->
-    <!-- SECCIÓN DE PROMOCIONES -->
-    <!-- ======================== -->
-    <section class="promos">
-        <h2>Promociones Destacadas</h2>
-        <div class="contenedor-promos">
-            <!-- 🖼️ Aquí podrías colocar 3 imágenes de productos destacados -->
-            <!-- Ejemplo:
-            <div class="promo">
-                <img src="img/gpu.jpg" alt="Placa de video">
-                <p>RTX 4070 Ti - ¡En oferta!</p>
-            </div>
-            -->
         </div>
+
+        <button id="next" class="btn-carrusel" aria-label="Siguiente">›</button>
+
+        <div class="dots" aria-label="Paginación del carrusel"></div>
+    </div>
     </section>
 
-    <!-- ======================== -->
-    <!-- PIE DE PÁGINA -->
-    <!-- ======================== -->
-    <footer>
-        <p>© 2025 CompraTech - Tecnología al mejor precio</p>
-    </footer>
+<!-- Asegurate de que el script se cargue al final o con defer -->
+<script src="script.js" defer></script>
+
+
+<!-- carga el JS con defer o al FINAL del body -->
+<script src="script.js" defer></script>
+
+
+  <!-- ============================= -->
+  <!-- SECCIÓN DE INFORMACIÓN (tres columnas con flex) -->
+  <!-- ============================= -->
+  <section class="info container">
+    <h2>¿Por qué comprar en CompraTech?</h2>
+    <div class="grid-3">
+      <article class="card">
+        <h3>Envíos a todo el país</h3>
+        <p>Trabajamos con logística segura para que tus productos lleguen rápido y en perfectas condiciones.</p>
+      </article>
+      <article class="card">
+        <h3>Garantía oficial</h3>
+        <p>Todos nuestros productos cuentan con garantía y soporte técnico especializado.</p>
+      </article>
+      <article class="card">
+        <h3>Mejor precio asegurado</h3>
+        <p>Ofertas semanales y planes de financiación para equipar tu setup gamer.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2025 CompraTech — Tecnología al mejor precio.</p>
+    </div>
+  </footer>
 </body>
 </html>

@@ -1,184 +1,191 @@
-/* =======================
-   ESTILO GENERAL
-   ======================= */
+/* ===== Reset básico ===== */
+* {
+  box-sizing: border-box;
+}
+html,
 body {
-    font-family: "Segoe UI", Arial, sans-serif;
-    background-color: #0e0e0e;
-    color: #eaeaea;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+}
+img {
+  max-width: 100%;
+  display: block;
+}
+:root {
+  --primary: #00b7ff;
+  --bg: #0e0f11;
+  --bg1: #15171b;
+  --ink: #e8f0f7;
+  --muted: #a9b8c8;
+  --border: #1f232a;
+}
+body {
+  font-family: system-ui, Segoe UI, Roboto, Arial;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+}
+.container {
+  width: min(1100px, 92%);
+  margin-inline: auto;
 }
 
-/* =======================
-   ENCABEZADO / NAVBAR
-   ======================= */
+/* ===== Navbar ===== */
 header {
-    background-color: #1a1a1a;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 50px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.8);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #0c0e10;
+  border-bottom: 1px solid var(--border);
 }
-
-header .titulo {
-    color: #00b7ff;
-    font-size: 24px;
-    letter-spacing: 1px;
-    font-weight: bold;
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
 }
-
 .logo {
-    height: 50px;
-    /* Puedes ajustar el tamaño del logo aquí */
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+}
+.nav a {
+  color: #bcd0df;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+.nav a:hover,
+.nav a.active {
+  background: var(--primary);
+  color: #071016;
 }
 
-/* =======================
-   MENÚ DE NAVEGACIÓN
-   ======================= */
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-    margin: 0;
-    padding: 0;
+/* ===== Hero ===== */
+.hero {
+  padding: 36px 0 10px;
+  text-align: center;
+}
+.hero h1 {
+  margin: 0.2em 0 0.2em;
+}
+.hero p {
+  color: var(--muted);
+  margin-top: 0.3em;
 }
 
-.nav-links a {
-    color: #00b7ff;
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
+/* ===== Carrusel ===== */
+.marco-carrusel {
+  background: linear-gradient(180deg, #16181c, #111317);
+  border-radius: 14px;
+  box-shadow: 0 10px 28px #0007;
+  padding: 18px 0;
 }
 
-.nav-links a:hover {
-    color: #ffffff;
+.contenedor-carrusel {
+  position: relative;
+  padding: 0 42px 36px;
 }
 
-/* =======================
-   CARRUSEL DE IMÁGENES
-   ======================= */
-.carrusel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
-    gap: 20px;
+.titulo-carrusel {
+  color: var(--primary);
+  margin: 12px 0 18px;
+  text-align: center;
 }
 
-.carrusel button {
-    background-color: #222;
-    border: none;
-    color: #00b7ff;
-    font-size: 2em;
-    padding: 10px 15px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s;
+.ventana {
+  width: 100%;
+  height: 420px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #101317;
 }
 
-.carrusel button:hover {
-    background-color: #00b7ff;
-    color: #000;
+.tira {
+  display: flex;
+  height: 100%;
+  transition: transform 0.5s ease;
 }
 
-.contenedor-imagen {
-    width: 500px;
-    height: 280px;
-    background-color: #1b1b1b;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
+.tira img {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  padding: 16px;
+  background: #0c0f13;
 }
 
-/* 🖼️ Aquí se mostrarán las imágenes del carrusel */
-/* Podés reemplazar el color por una imagen de fondo temporal */
-.contenedor-imagen::before {
-    content: "Carrusel de productos";
-    color: #888;
-    font-size: 18px;
+.btn-carrusel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 50%;
+  background: var(--primary);
+  color: #071016;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 20px rgba(0, 183, 255, 0.35);
+  cursor: pointer;
+  font-size: 22px;
+}
+#prev { left: 8px; }
+#next { right: 8px; }
+
+.dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 8px;
+  display: flex;
+  gap: 8px;
+}
+.dots button {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: #3d4652;
+}
+.dots button.active {
+  background: var(--primary);
+  transform: scale(1.2);
 }
 
-/* =======================
-   SECCIÓN DE PRESENTACIÓN
-   ======================= */
-.presentacion {
-    text-align: center;
-    padding: 60px 20px;
-    background-color: #121212;
+@media (max-width: 768px) {
+  .ventana { height: 280px; }
+  .btn-carrusel {
+    width: 40px; height: 40px; font-size: 20px;
+  }
 }
 
-.presentacion h2 {
-    color: #00b7ff;
-    margin-bottom: 15px;
+
+/* ===== Info ===== */
+.info {
+  margin-top: 26px;
+}
+.info h2 {
+  color: var(--primary);
+}
+.info p {
+  color: var(--muted);
 }
 
-.presentacion p {
-    max-width: 800px;
-    margin: 0 auto;
-    line-height: 1.6;
-    color: #ccc;
-}
-
-/* 🖼️ Aquí podrías poner una imagen de fondo para la sección */
-/*
-.presentacion {
-    background-image: url('img/banner.jpg');
-    background-size: cover;
-    background-position: center;
-}
-*/
-
-/* =======================
-   SECCIÓN DE PROMOCIONES
-   ======================= */
-.promos {
-    background-color: #181818;
-    padding: 50px 20px;
-    text-align: center;
-}
-
-.promos h2 {
-    color: #00b7ff;
-    margin-bottom: 30px;
-}
-
-.contenedor-promos {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-/* 🖼️ Cada cuadro de producto puede tener imagen y texto */
-.promo {
-    background-color: #202020;
-    padding: 15px;
-    border-radius: 10px;
-    width: 220px;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.promo:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 10px #00b7ff;
-}
-
-.promo img {
-    width: 100%;
-    border-radius: 5px;
-}
-
-/* =======================
-   PIE DE PÁGINA
-   ======================= */
+/* ===== Footer ===== */
 footer {
-    background-color: #1a1a1a;
-    text-align: center;
-    padding: 15px;
-    color: #888;
-    margin-top: 40px;
-    font-size: 14px;
+  margin-top: 34px;
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: #a7bed0;
+  background: #0c0e10;
 }
